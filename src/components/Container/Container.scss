@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto;
+  max-width: 1190px;
+  padding-inline: 10px;
+
+  @include on-laptop {
+    max-width: 924px;
+  }
+
+  @include on-tablet {
+    max-width: 724px;
+  }
+
+  @include on-mobile {
+    max-width: 348px;
+  }
+}

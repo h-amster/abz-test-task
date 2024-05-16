@@ -1,0 +1,11 @@
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__link {
+    @extend %button;
+  }
+}

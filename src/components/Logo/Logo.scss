@@ -1,0 +1,10 @@
+.logo {
+  display: flex;
+  width: fit-content;
+  text-decoration: none;
+  transition: transform $effectDuration;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

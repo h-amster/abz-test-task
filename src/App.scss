@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: $font-family;
+  background-color: $color-bg;
+
+  &__main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding-bottom: 100px;
+    gap: 140px;
+  }
+}
+
+html {
+  font-family: $font-family;
+  scroll-behavior: smooth;
+}
+
+@include font-face(Nunito, Nunito-Regular, 400, normal);

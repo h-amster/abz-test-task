@@ -1,0 +1,19 @@
+.success {
+  &__title {
+    margin-bottom: 50px;
+    text-align: center;
+
+    @extend %title;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 328px;
+  }
+}

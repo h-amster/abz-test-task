@@ -1,0 +1,11 @@
+.tooltip {
+  position: fixed;
+  z-index: 2;
+  border-radius: 4px;
+  padding: 3px 16px;
+  color: #fff;
+  background-color: $color-text;
+  pointer-events: none;
+
+  @extend %plain-text;
+}
