@@ -20,7 +20,7 @@
     width: 100%;
     gap: 29px;
 
-    @include on-tablet {
+    @media (max-width: 780px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }

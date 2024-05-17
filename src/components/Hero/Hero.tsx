@@ -5,36 +5,8 @@ import desktopBg from '../../assets/images/hero/bg-desktop.webp';
 import laptopBg from '../../assets/images/hero/bg-laptop.webp';
 import tabletBg from '../../assets/images/hero/bg-laptop.webp';
 import mobileBg from '../../assets/images/hero/bg-mobile.avif';
-import { useState, useEffect } from 'react';
 
 export const Hero: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [bgImage, setBgImage] = useState(mobileBg);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (windowWidth >= 1170) {
-      setBgImage(desktopBg);
-    } else if (windowWidth >= 1024 && windowWidth < 1170) {
-      setBgImage(laptopBg);
-    } else if (windowWidth >= 768 && windowWidth < 1024) {
-      setBgImage(tabletBg);
-    } else {
-      setBgImage(mobileBg);
-    }
-  }, [windowWidth]);
-
   return (
     <section className="hero">
       <Container className="hero__container">
@@ -54,10 +26,13 @@ export const Hero: React.FC = () => {
       </Container>
       <img
         className="hero__bg"
-        src={bgImage}
+        src={mobileBg}
         alt="Hero background"
         width="100%"
         height="500"
+        srcSet={`${mobileBg} 360w, ${tabletBg} 768w, ${laptopBg} 1024w, ${desktopBg} 1170w`}
+        // eslint-disable-next-line max-len
+        sizes="(max-width: 300px) 300px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1170px"
       />
     </section>
   );
