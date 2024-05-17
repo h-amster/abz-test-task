@@ -3,7 +3,7 @@ import './Hero.scss';
 
 import desktopBg from '../../assets/images/hero/bg-desktop.webp';
 import laptopBg from '../../assets/images/hero/bg-laptop.webp';
-import tabletBg from '../../assets/images/hero/bg-laptop.webp';
+import tabletBg from '../../assets/images/hero/bg-tablet.webp';
 import mobileBg from '../../assets/images/hero/bg-mobile.avif';
 
 export const Hero: React.FC = () => {
@@ -24,16 +24,19 @@ export const Hero: React.FC = () => {
           Sign up
         </a>
       </Container>
-      <img
-        className="hero__bg"
-        src={mobileBg}
-        alt="Hero background"
-        width="100%"
-        height="500"
-        srcSet={`${mobileBg} 360w, ${tabletBg} 768w, ${laptopBg} 1024w, ${desktopBg} 1170w`}
-        // eslint-disable-next-line max-len
-        sizes="(max-width: 300px) 300px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1170px"
-      />
+      <picture>
+        <source srcSet={desktopBg} media="(min-width: 1170px)" />
+        <source srcSet={laptopBg} media="(min-width: 1024px)" />
+        <source srcSet={tabletBg} media="(min-width: 768px)" />
+        <source srcSet={mobileBg} media="(min-width: 360px)" />
+        <img
+          className="hero__bg"
+          src={mobileBg}
+          alt="Hero background"
+          width="100%"
+          height="500"
+        />
+      </picture>
     </section>
   );
 };
